@@ -1,6 +1,6 @@
 [package]
 name = "blst"
-version = "0.3.12"
+version = "0.3.11"
 authors = ["sean-sn <sean@supranational.net>"]
 edition = "2018"
 license = "Apache-2.0"
@@ -37,7 +37,7 @@ force-adx = []
 # Engaged on wasm32 target architecture automatically.
 no-threads = []
 # Add support for serializing SecretKey, not suitable for production.
-serde-secret = ["serde"]
+serde-secret = []
 
 [build-dependencies]
 cc = "1.0"
@@ -46,7 +46,7 @@ glob = "0.3"
 
 [dependencies]
 zeroize = { version = "^1.1", features = ["zeroize_derive"] }
-serde = { version = "1.0.152", optional = true }
+serde = { version = "1.0.152", features = ["derive"], optional = false }
 
 [target.'cfg(not(any(target_arch="wasm32", target_os="none", target_os="unknown", target_os="uefi")))'.dependencies]
 threadpool = "^1.8.1"
